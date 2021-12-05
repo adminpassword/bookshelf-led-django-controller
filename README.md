@@ -1,0 +1,2 @@
+# bookshelf-led-django-controller
+The goal for this project is to create a website that can control the ws2812b leds in my bookshelf with a simple and easy to use UI. Support will be added so you can group led IDs together for specific compartments so you don't have to remember each ID every time you would like to make an adjustment. This will be controlled with a raspberry pi connected to around 100 ws2812b pixels.
