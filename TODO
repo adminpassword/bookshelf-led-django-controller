@@ -1,0 +1,40 @@
+First step: Copy the files from my climbing wall led controller django project and refactor to a barebones controller. 
+
+Second step: Create part of the bookshelf and test out different led mounting positions for the desired lighting effects.
+
+Third step: Create the entire bookshelf and mount the leds inside.
+
+Fourth step: Create a system on the controller website that allows you to group led IDs together and automatically fill them into the UI for editing.
+
+Fifth step: Create UI that allows you to adjust the timing of the leds and include common presets such as blinking on and off, pulsing brightness, and
+blinking and pulsing in a wave effect. 
+
+Fifth step led group timing and lighting in more detail: I believe to make this work you will have to give each led a priority in the UI by dragging them into a line.
+  In addition, the UI will most likely need to have a system where you can set duration on and duration off in milliseconds(ms) so the user can fully control 
+  their lighting effects. For pulsing between bright and dim you should be able set the ms per cycle. When using pulsing this should not allow the user to enable 
+  and blinking other than extending the time it is off and on(100% bright). Combining pulsing and blinking might have to include complicated programming logic
+  that might not flow very well so this feature may not be included.
+ 
+ Fifth step UI data gathered per led: Each led will have input fields for the following things. 
+ 
+    Setting a solid brightness(0-100%) <- A checkmark will allow you to choose between solid brightness or pulsing brightness as you cannot have both.
+    Pulsing brightness cycle time in ms
+    Led color with a color picker <- data will have to be stored as xxx,xxx,xxx or RGB. I will be able to just take a color picker from the internet.
+       In addition there must a checkbox for 3 things here. Blending between 2 colors, rainbow(warbreaker anyone?), and solid color.
+    Led priority control <- Will be set by dragging the led group ID numbers into the proper order. Not entirely sure yet if setting a priority makes sense
+      in order to have better control of lighting effects but I will have a good think on this later. The most complicated lighting effect I can think of off the 
+      top of my head would be something where everything stays solid for a little while and then an effect triggers that mimics something shooting across the leds.
+      Something like this would work great for the mistborn trilogy compartment. Wrong place to be having this discussion but potentially be able set and store 
+      multiple effects where you can set UI that triggers them in order where you can adjust the delay between the two either fixed or within a range randomly
+      or just trigger the stored effects in any order randomly with either type of delay as the user sees fit. This idea sounds great but may take some time implementing.
+    
+    The short list above documents the most important features the UI must have. On further thought a complicated system where you set keyframes for you led animation
+    where you can set either hard jumps in brightness(maybe linked with on(100%) and off(0%) for simplicity) or color or blending between them in a set amount of ms.
+    Not sure the best way to blend 2 different colors but I have resources where I can ask questions if I end up implementing this.
+    
+    For a key frame system the time it takes per frame and the blending of each frame must tallied up and displayed to the user. In terms of priority control it seems
+    like you do not need to record them for the sake of the lighting effect and can instead run the effect of each led in a frame at the same time where the only time
+    the frame can advance to either a new one or the same one is when the longest single led effect(example is on for 4 second off for 1 second) is completed which
+    allows the program to iterate.
+ 
+  
